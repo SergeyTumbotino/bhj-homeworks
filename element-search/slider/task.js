@@ -1,6 +1,11 @@
 const sliderItems = Array.from(document.querySelectorAll(".slider__item"));
 const sliderDots = Array.from(document.querySelectorAll(".slider__dot"));
 
+const activeSlideIndex = sliderItems.findIndex((slide) =>
+  slide.classList.contains("slider__item_active")
+);
+sliderDots[activeSlideIndex].classList.add("slider__dot_active");
+
 function changeSlide(index) {
   const activeSlideIndex = sliderItems.findIndex((slide) =>
     slide.classList.contains("slider__item_active")
@@ -37,5 +42,3 @@ for (let i = 0; i < sliderDots.length; i++) {
     changeSlide(i);
   });
 }
-
-
