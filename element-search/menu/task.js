@@ -9,18 +9,18 @@ const menuLinkArr = Array.from(document.querySelectorAll(".menu__link"));
 //   };
 // });
 
-function menuClicker(item) {
+function menuClicker(item, event) {
   if (menuLinkArr[item].nextElementSibling) {
     if (menuLinkArr[item].nextElementSibling.className === "menu menu_sub") {
       menuLinkArr[item].nextElementSibling.classList.add("menu_active");
+      event.preventDefault();
     }
   }
 }
 
 for (let i = 0; i < menuLinkArr.length; i++) {
   menuLinkArr[i].addEventListener("click", (event) => {
-    menuClicker(i);
-    event.preventDefault();
+    menuClicker(i, event);
   });
 }
 
